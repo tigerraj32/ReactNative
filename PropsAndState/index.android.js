@@ -15,13 +15,8 @@
    View
  } from 'react-native';
 
- class SampleComponent extends Component {
-   render(){
-     return(
-       <Text onPress = {this.props.incrementCount}> Press here to increase count  </Text>
-     );
-   }
- }
+import SampleComponent from './sample-component';
+
 
  SampleComponent.propsTypes = {
    incrementCount: React.PropTypes.func.isRequired,
@@ -74,5 +69,5 @@
    },
  });
 
- 
+
 AppRegistry.registerComponent('PropsAndState', () => PropsAndState);

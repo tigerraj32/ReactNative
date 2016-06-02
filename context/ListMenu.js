@@ -26,7 +26,9 @@ renderCell(item: Object,sectionID: number | string, rowID: number | string) {
     return (
       <Cell
          selectedRow = {()=>{this.selectedRow(item)}}
-         cellItem={item}/>
+         cellItem={item}
+         sectionID={sectionID}
+         rowID={rowID}/>
     );
   }
   renderSeparator(sectionID: number | string,rowID: number | string, adjacentRowHighlighted: boolean ) {

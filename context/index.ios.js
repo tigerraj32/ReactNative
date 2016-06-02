@@ -16,6 +16,7 @@ import {
 const SideMenu = require('react-native-side-menu');
 import Menu from './Menu';
 import ListMenu from './ListMenu';
+import eMENU from './e-menu';
 
 
 class context extends Component {
@@ -33,7 +34,7 @@ class context extends Component {
     super();
     this.state = {
       isOpen: false,
-      selectedItem: 'About',
+      selectedItem: eMENU.About.toString(),
     };
 
     this.selectedItem = this.selectedItem.bind(this);
@@ -50,7 +51,7 @@ class context extends Component {
   updateMenuState(isOpen) {
     this.setState({ isOpen, });
   }
-  selectedItem(item){
+  selectedItem(item: Object){
     console.log('selectedItem: '+ item);
     this.setState({
       isOpen: false,
@@ -59,14 +60,26 @@ class context extends Component {
   }
 
   render() {
+
       const menu =<ListMenu onItemSelected = {this.selectedItem}/>
+      console.log(this.state.selectedItem + " " + eMENU.About.toString());
+      var cont = null;
+      if (this.state.selectedItem == eMENU.About.toString()) {
+        console.log('if statement');
+        cont = <ContentView toggleSideMenu = {this.toggle} content ='About Component rendering' />
+      }
+      else {
+        console.log('else statement');
+        cont = <ContentView toggleSideMenu = {this.toggle} content = 'Contact Component rendering'/>
+      }
     return (
       <SideMenu
         menu={menu}
         isOpen={this.state.isOpen}
         onChange={(isOpen) => this.updateMenuState(isOpen)}
         >
-         <ContentView toggleSideMenu = {this.toggle} content = {this.state.selectedItem}/>
+        {cont}
+
        </SideMenu>
     );
   }

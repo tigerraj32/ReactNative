@@ -13,7 +13,8 @@ export default class Cell extends Component {
    onSelectMenuOption: React.PropTypes.func.isRequired
  };
  onSelectCell(item){
-   console.log('onselect cell: '+ item);
+   console.log('onselect cell: '+ item + ' sectionID: '+ this.props.sectionID + ' rowID: '+ this.props.rowID);
+
    this.context.onSelectMenuOption(item);
  }
   render(){

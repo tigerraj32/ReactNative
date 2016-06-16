@@ -1,0 +1,24 @@
+{
+  "name": "AliasBabel",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-plugin-module-alias": "^1.4.0",
+    "react": "^15.1.0",
+    "react-native": "0.27.2"
+  },
+  "babel":{
+    "plugins": [
+                [
+                  "module-alias", [
+                    { "src": "./app", "expose": "app" },
+                    { "src": "./app/resources/icon", "expose": "icon" }
+                  ]
+                ]
+              ]
+  }
+}
